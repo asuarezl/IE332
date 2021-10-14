@@ -1,0 +1,10 @@
+y <- goals$Points.x
+y1 <- data.frame(Points = sort(y, decreasing = TRUE),NP = 0, AP_Position = 0, AP_Overall = 0)
+
+i = 1
+#y1$NP[1] <- 100
+while (i < length(y1$Points)){
+  y1$NP[i] <- ((y1$Points[i] - y1$Points[i+1])/ y1$Points[i])*100 #next player
+  y1$AP_Overall[i] <- ((y1$Points[i] - mean(y1$Points)) / mean(y1$Points))*100 #average at each other position
+  i = i + 1
+}
